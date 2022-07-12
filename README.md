@@ -1,5 +1,7 @@
 # file_browser
 
+This program is Open Source licensed with the MIT license, giving people maximum freedom to continue development.  
+
 This program is a creation of mine that I have been imagining and occasionally attempting to code since the late 1980's.  
 It provides a somewhat graphical approach to displaying and navigating your directory structure on a Mac (Apple computer).  
 It only runs on Apple computers right now, because that is what I have.  
