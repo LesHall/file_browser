@@ -22,4 +22,4 @@ Lester Crossman Hall
 Tue Jul 12 2002, 5:00 pm CST
 
 p.s. This is a Processing file set.  You can download Processing from www.Procesing.org and put the files in a directory (folder)
-of the same name (file_browser_15) so Processing knows what to do with the files, that is just how Processing works.  Good luck!
+of the same name (file_browser) so Processing knows what to do with the files, that is just how Processing works.  Good luck!
