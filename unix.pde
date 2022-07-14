@@ -34,7 +34,7 @@
  */
  
  //addition from here: https://forum.processing.org/one/topic/unexpected-token-import-17-5-2013.html
-//import java.io.InputStreamReader;
+import java.io.InputStreamReader;
 
 
 
@@ -57,13 +57,15 @@ String get_home_dir()
 }
   
   
-String[] get_ls(String dir)
+String[] get_ls(String options, String dir)
 {
   File workingDir = new File(dir);
   String result = "";
   
   // obtain the ls result
-  result = unix("ls", workingDir, result, "\n");
+  String[] comm = {"ls ", options};
+  String command = join(comm, "");
+  result = unix(command, workingDir, result, "\n");
   // print(result + "\t");
   
   // parse ls result into an array
@@ -74,7 +76,7 @@ String[] get_ls(String dir)
 
 
 
-String unix(String commandToRun, File workingDir, String returnedValues, String separator)
+String unix(String commandToRun, File workingDir, String returnedValues, String seperator)
 {
   // run the command!
   try {
@@ -97,7 +99,7 @@ String unix(String commandToRun, File workingDir, String returnedValues, String 
       // read the output from the command
       String returned = "";
       while ( (returned = stdInput.readLine()) != null) {
-        returnedValues = returnedValues + separator + returned;
+        returnedValues = returnedValues + seperator + returned;
       }
     }
 
@@ -109,7 +111,7 @@ String unix(String commandToRun, File workingDir, String returnedValues, String 
       // if something is returned (ie: not null) print the result
       String returned = "";
       while ( (returned = stdErr.readLine()) != null) {
-        returnedValues = returnedValues + separator + returned;
+        returnedValues = returnedValues + seperator + returned;
       }
     }
   }
@@ -130,9 +132,9 @@ String unix(String commandToRun, File workingDir, String returnedValues, String 
 String cd(String dir)
 {
   String returnedValues = "";
-  String separator = "\n";
+  String seperator = "\n";
   File workingDir = new File(dir);
   
-  returnedValues = unix("cd", workingDir, returnedValues, separator);
+  returnedValues = unix("cd", workingDir, returnedValues, seperator);
   return returnedValues;
 }
