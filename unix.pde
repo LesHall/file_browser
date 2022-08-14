@@ -59,7 +59,8 @@ String get_home_dir()
   
 String[] get_ls(String options, String dir)
 {
-  File workingDir = new File(dir);
+  String[] tokens = split(dir, '@');
+  File workingDir = new File(tokens[0]);
   String result = "";
   
   // obtain the ls result
@@ -70,7 +71,7 @@ String[] get_ls(String options, String dir)
   
   // parse ls result into an array
   String[] lsResult = split(result, '\n');
-  // println(lsResult);
+  println(lsResult);
   return lsResult;
 }
 
@@ -121,7 +122,7 @@ String unix(String commandToRun, File workingDir, String returnedValues, String 
     println("Error running command!");  
     println(e);
   }
-
+  
   // when done running command, quit
   return returnedValues;
 }
@@ -132,9 +133,9 @@ String unix(String commandToRun, File workingDir, String returnedValues, String 
 String cd(String dir)
 {
   String returnedValues = "";
-  String seperator = "\n";
+  String seperator = " ";
   File workingDir = new File(dir);
   
-  returnedValues = unix("cd", workingDir, returnedValues, seperator);
+  returnedValues = unix("cd ", workingDir, returnedValues, seperator);
   return returnedValues;
 }
